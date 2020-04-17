@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mywebsite</title>
+    <style>
+        table{
+            text-align: center;
+            border-color: lightgray;
+            width: 80%
+        }
+        img{
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><img src="images/7239276_R_SET.jpg" alt=""></td>
+            <td>Monthly Subscription</td>
+            <td>100 Euros</td>
+           
+        </tr>
+      
+    </table>
+
+    <div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AdVwq9yQcZA1uMey8jeT6E0nrNFxm2BHeqivwNqbkvSfzg5zXw9jb6ap5Jcp-qVsNliKgXcEuhhouTPq&vault=true" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'paypal',
+          
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-1AD81690DA976833CLZIZE3Y'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script>
+  
+     <!-- <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="upload" value="1">
+        <input type="hidden" name="business" value="fakebusiness1264@gmail.com">
+        
+        <input type="hidden" name="item_name_1" value="HTC LATEST CELL PHONE">
+        <input type="hidden" name="amount_1" value="250">
+        <input type="hidden" name="quantity_1" value="3">
+        
+        <input type="hidden" name="item_name_2" value="REDMI MI INDIA'S BEST CELL PHONE">
+        <input type="hidden" name="amount_2" value="140">
+        <input type="hidden" name="quantity_2" value="2">
+        <input type="submit" value="PayPal">
+        </form>
+  -->
+</body>
+</html>
