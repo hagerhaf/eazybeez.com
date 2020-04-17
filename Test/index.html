@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mywebsite</title>
+    <style>
+        table{
+            text-align: center;
+            border-color: lightgray;
+            width: 80%
+        }
+        img{
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Quantity</th>
+        </tr>
+        <tr>
+            <td><img src="images/7239276_R_SET.jpg" alt=""></td>
+            <td>TEST</td>
+            <td>1</td>
+           
+        </tr>
+        <tr>
+          
+        </tr>
+    </table>
+  
+  <div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AdVwq9yQcZA1uMey8jeT6E0nrNFxm2BHeqivwNqbkvSfzg5zXw9jb6ap5Jcp-qVsNliKgXcEuhhouTPq&vault=true" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-8M233321GC1654640LZIZSIY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script>
+     
+</body>
+</html>
